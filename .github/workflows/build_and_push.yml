@@ -24,5 +24,20 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: grimbough/test:latest
+          build-args: valgrind_level=0
+          tags: grimbough/test:vl0
+          
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          build-args: valgrind_level=1
+          tags: grimbough/test:vl1
+          
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          build-args: valgrind_level=2
+          tags: grimbough/test:vl2
           
